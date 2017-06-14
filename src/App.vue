@@ -1,7 +1,11 @@
 <template>
-  <div id="app">
+  <div id="app" v-on:mousemove="updateCoordinates">
     <h2>Time to play.</h2>
-    <hr>
+    <p>Coordinates: {{ x }} {{ y }} -
+      <span v-on:mousemove.stop="">DEAD SPOT</span>
+    </p>
+    <!--Modifiers for v-on -->
+    <input type="text" v-on:keyup.enter.space="alertMe" <hr>
     <!--router link can bind to property   :to="" -->
     <router-link to="/">Home</router-link>
     <router-link to="/users/10">Users</router-link>
@@ -16,8 +20,18 @@
 export default {
   data() {
     return {
-
+      x: 0,
+      y: 0
     }
+  },
+  methods: {
+    updateCoordinates(event) {
+      this.x = event.clientX;
+      this.y = event.clientY;
+    }
+  },
+  alertMe() {
+
   }
 }
 </script>
