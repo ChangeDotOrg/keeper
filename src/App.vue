@@ -1,5 +1,5 @@
 <template>
-  <div id="app" v-on:mousemove="updateCoordinates">
+  <div id="app">
     <h2>Time to play.</h2>
     <p>Coordinates: {{ x }} {{ y }} -
       <span v-on:mousemove.stop="">DEAD SPOT</span>
